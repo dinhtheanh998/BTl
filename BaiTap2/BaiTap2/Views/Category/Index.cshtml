@@ -1,0 +1,12 @@
+﻿@model List<BaiTap2.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var item in Model)
+{
+    <h1>@item.Name</h1>
+}

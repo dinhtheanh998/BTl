@@ -1,0 +1,12 @@
+﻿@model  BaiTap2.Models.Category
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delte Category</h2>
+<h3>Bạn Chắc Chắn Muốn Xóa</h3>
+<form method="post">   
+    <input type="hidden" name="ID" value="@Model.ID"/>
+    <button type="submit">Yes,Delete</button>
+</form>
+<a href="/Index">Cancel</a>

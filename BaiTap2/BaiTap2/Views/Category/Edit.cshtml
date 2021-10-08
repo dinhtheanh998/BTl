@@ -1,0 +1,16 @@
+﻿@model  BaiTap2.Models.Category
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form method="post">
+    <label>Name</label>
+    <input name="Name" value="@Model.Name" />
+    <br />
+    <label>Desscription</label>
+    <input name="Description" value="@Model.Description" />
+    <br />
+    <button type="submit">Save</button>
+</form>
