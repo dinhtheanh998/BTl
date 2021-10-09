@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BTL_LTQL.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Client/Views/Shared/_LayoutClient.cshtml";
+}
+
+
+<section class="flat-row row-product-project style-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-section margin-bottom-41">
+                    <h2 class="title">Sản Phẩm</h2>
+                </div>
+                <div class="divider h54"></div>
+                <div class="product-content product-fourcolumn clearfix">
+                    <ul class="product style2 isotope-product clearfix">
+                        @foreach (var item in Model)
+                        {
+
+                            <li class="product-item kid woman">
+                                <div class="product-thumb clearfix">
+                                    <a href="#">
+                                        <img src="~/Images/1.jpg" alt="image">
+                                    </a>
+                                </div>
+                                <div class="product-info clearfix">
+                                    <span class="product-title">@item.ProductName</span>
+                                    <div class="price">
+                                        <ins>
+                                            <span class="amount">@item.ProductPrice</span>
+                                        </ins>
+                                    </div>
+
+                                </div>
+                                <div class="add-to-cart text-center">
+                                    <a href="#">VIEW INFO</a>
+                                </div>
+
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
