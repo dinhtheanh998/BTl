@@ -153,6 +153,10 @@
     <Compile Include="Migrations\202110090621097_account.Designer.cs">
       <DependentUpon>202110090621097_account.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110091355232_update-img-test.cs" />
+    <Compile Include="Migrations\202110091355232_update-img-test.Designer.cs">
+      <DependentUpon>202110091355232_update-img-test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AutogenKey.cs" />
@@ -263,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110090621097_account.resx">
       <DependentUpon>202110090621097_account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110091355232_update-img-test.resx">
+      <DependentUpon>202110091355232_update-img-test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

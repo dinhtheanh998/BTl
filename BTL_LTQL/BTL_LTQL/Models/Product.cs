@@ -15,6 +15,10 @@ namespace BTL_LTQL.Models
         public string ProductName { get; set; }
         public string ProductPrice { get; set; }
         public string ProductDescription { get; set; }
+
+        public string ProductImageName { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase ProductImgFile { get; set; }
         public string CategoryID { get; set; }
         [ForeignKey("CategoryID")]
         public virtual Category Categories { get; set; }

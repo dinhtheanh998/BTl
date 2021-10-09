@@ -5,30 +5,34 @@
     Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
+    <h2>Loại Sản Phẩm</h2>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
-        </td>
-    </tr>
-}
+    <div>
+               <a href="/Admins/Categoryes/Create" class="btn btn-create-primary">Thêm Loại Sản Phẩm</a>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CategoryID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

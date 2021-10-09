@@ -5,50 +5,100 @@
     Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Thông Tin Sản Phẩm</h2>
+<div class="container">
 
-<div>
-   @*@Html.ActionLink("Thêm Sản Phẩm", "Create",null,new { @class = "btn btn-create-primary" })*@
-   <a href="/Admins/ProductsAdmin/Create" class="btn btn-create-primary">Thêm Sản Phẩm</a>
+    <h2>Thông Tin Sản Phẩm</h2>
+
+    <div>
+        @*@Html.ActionLink("Thêm Sản Phẩm", "Create",null,new { @class = "btn btn-create-primary" })*@
+        <a href="/Admins/ProductsAdmin/Create" class="btn btn-create-primary">Thêm Sản Phẩm</a>
+    </div>
 </div>
-<table class="table">
-    <tr>
-        <th>
- 
-            @Html.DisplayNameFor(model => model.Categories.CategoryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductDescription)
-        </th>
-        <th></th>
-    </tr>
+@*<table class="table">
+        <tr>
+            <th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categories.CategoryName,"Loại Sản Phẩm")
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
-        </td>
-    </tr>
-}
+                @Html.DisplayNameFor(model => model.Categories.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categories.CategoryName,"Loại Sản Phẩm")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+<section class="flat-row row-product-project style-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-section margin-bottom-41">
+                    <h2 class="title">Sản Phẩm</h2>
+                </div>
+                <div class="divider h54"></div>
+                <div class="product-content product-fourcolumn clearfix">
+                    <ul class="product style2 isotope-product clearfix">
+                        @foreach (var item in Model)
+                        {
+
+                            <li class="product-item kid woman">
+                                <div class="product-thumb clearfix">
+                                    <a href="#">
+                                        <img height="300" src="@item.ProductImageName" alt="image">
+                                    </a>
+                                </div>
+                                <div class="product-info clearfix">
+                                    <span class="product-title">@item.ProductName</span>
+                                    <div class="price">
+                                        <ins>
+                                            <span class="amount">@item.ProductPrice</span>
+                                        </ins>
+                                    </div>
+
+                                </div>
+                                <div class="product-actions-wrap">
+                                    <div class="product-action">
+                                        <a class="product-action-link" href="/Admins/ProductsAdmin/Delete/@item.ProductID">DELETE</a>
+                                    </div>
+                                    <div class="senparate-product-action"></div>
+                                    <div class="product-action">
+                                        <a class="product-action-link" href="/Admins/ProductsAdmin/Edit/@item.ProductID">Edit</a>
+                                    </div>
+                                </div>
+
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

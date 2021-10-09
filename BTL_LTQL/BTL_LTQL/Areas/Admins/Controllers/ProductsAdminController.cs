@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -13,7 +14,7 @@ namespace BTL_LTQL.Areas.Admins.Controllers
     public class ProductsAdminController : Controller
     {
         private LTQLDbcontext db = new LTQLDbcontext();
-
+        AutogenKey genkey = new AutogenKey();
         // GET: Admins/Products
         public ActionResult Index()
         {
@@ -39,6 +40,18 @@ namespace BTL_LTQL.Areas.Admins.Controllers
         // GET: Admins/Products/Create
         public ActionResult Create()
         {
+
+            if (db.Products.OrderByDescending(m => m.ProductID).Count() == 0)
+            {
+                var newID = "SP01";
+                ViewBag.newproID = newID;
+            }
+            else
+            {
+                var PdID = db.Products.OrderByDescending(m => m.ProductID).FirstOrDefault().ProductID;
+                var newID = genkey.generatekey(PdID, 2);
+                ViewBag.newproID = newID;
+            }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
             return View();
         }
@@ -48,15 +61,21 @@ namespace BTL_LTQL.Areas.Admins.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductID,ProductName,ProductPrice,ProductDescription,CategoryID")] Product product)
+        public ActionResult Create(/*[Bind(Include = "ProductID,ProductName,ProductPrice,ProductDescription,CategoryID")]*/ Product product)
         {
             if (ModelState.IsValid)
             {
+                string fileName = Path.GetFileNameWithoutExtension(product.ProductImgFile.FileName);
+                string extension = Path.GetExtension(product.ProductImgFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                product.ProductImageName = "/Images/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                product.ProductImgFile.SaveAs(fileName);
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ModelState.Clear();
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
             return View(product);
         }
