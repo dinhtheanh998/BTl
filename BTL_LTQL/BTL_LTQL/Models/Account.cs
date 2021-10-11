@@ -20,5 +20,6 @@ namespace BTL_LTQL.Models
         public string ConfirmPassword { get; set; }
         [StringLength(10)]
         public string RoleID { get; set; }
+//         hehe
     }
 }
