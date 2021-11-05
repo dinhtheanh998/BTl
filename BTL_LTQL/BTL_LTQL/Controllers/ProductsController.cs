@@ -15,10 +15,18 @@ namespace BTL_LTQL.Controllers
         private LTQLDbcontext db = new LTQLDbcontext();
 
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            var links = from l in db.Products // lấy toàn bộ liên kết
+                        select l;
+            if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            {
+                links = links.Where(s => s.ProductName.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+            }
+                
+            return View(links);
             var products = db.Products.Include(p => p.Categories);
-            return View(products.ToList());
+            //return View(products.ToList());
         }
 
         // GET: Products/Details/5

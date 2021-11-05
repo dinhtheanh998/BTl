@@ -13,7 +13,7 @@ namespace BTL_LTQL.Models
         public string ProductID { get; set; }
         
         public string ProductName { get; set; }
-        public string ProductPrice { get; set; }
+        public float ProductPrice { get; set; }
         public string ProductDescription { get; set; }
 
         public string ProductImageName { get; set; }

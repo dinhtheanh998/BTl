@@ -179,9 +179,9 @@
 }
 
 body {
-	font: 14px/26px "Poppins", sans-serif;
+	font: 14px/26px "Helvetica Neue", Helvetica;
 	font-weight: 300;
-	background-color: #fff;		
+	background-color: #fff;
 	color: #6e6e6e;
 }
 
@@ -401,13 +401,13 @@ input[type="color"],
 .navbar .nav > .active > a,
 .navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus {
+	color: #464a4c;
 	-webkit-appearance: none;
 	text-shadow: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	-o-box-shadow: none;
 	box-shadow: none;
-	color: #c5c5c5;
 }
 
 h1,h2,h3,h4,h5 {
