@@ -1220,10 +1220,11 @@ h6 { font-size: 14px; line-height: 48px; font-weight: 400;}
 	display: block;
 }
 
-#mainnav > ul >li.active > a,
-#mainnav > ul >li > a:hover  {
-	color: #f63440;
-}
+	.active,
+	#mainnav > ul > li.active > a,
+	#mainnav > ul > li > a:hover {
+		color: #f63440;
+	}
 
 /* Submenu */
 #mainnav ul.submenu {
