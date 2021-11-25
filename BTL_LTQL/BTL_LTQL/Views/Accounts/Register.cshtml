@@ -42,13 +42,26 @@
             </div>
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-12">
-                    <input type="submit" value="Tạo Tài Khoản" class="btn btn-default" style="color:white"/>
+                <label class="reg-log-label">Loại Tài Khoản</label>
+                <div class="col-md-12">
+                    <select class="form-control" id="StudentGender" name="RoleID">
+                        <option>Select Gender</option>
+                        <option>Admin</option>
+                        <option>client</option>
+                    </select>
+                    @*@Html.EditorFor(model => model.RoleID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoleID, "", new { @class = "text-danger" })*@
                 </div>
             </div>
-        <div class="form-group">               
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-12">
+                    <input type="submit" value="Tạo Tài Khoản" class="btn btn-default" style="color:white" />
+                </div>
+            </div>
+            <div class="form-group">
                 <div class="col-md-10">
-                    <input type="text" hidden value="client" class="form-control" name="RoleID"/>                   
+                    <input type="text" hidden value="client" class="form-control" name="RoleID" />
                 </div>
             </div>
         </div>        

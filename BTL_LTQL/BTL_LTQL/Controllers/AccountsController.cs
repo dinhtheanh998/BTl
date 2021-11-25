@@ -19,7 +19,7 @@ namespace BTL_LTQL.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public ActionResult Register()
         {
             return View();

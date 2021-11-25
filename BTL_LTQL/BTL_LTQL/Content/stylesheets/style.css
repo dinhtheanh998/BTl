@@ -3006,3 +3006,13 @@ article .more-link a:hover:after {
 .label-reg-log-text {
 	text-align:center;
 }
+
+.jhasdu {
+	display:flex;
+	align-items:center;
+}
+
+.productqua {
+	margin-right: 8px;
+	width: 100px;
+}

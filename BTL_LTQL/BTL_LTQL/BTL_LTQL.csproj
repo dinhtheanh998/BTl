@@ -213,12 +213,14 @@
     <Content Include="Areas\Admins\Views\Categories\Details.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Index.cshtml" />
-    <Content Include="Areas\Admins\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admins\Views\AccountAdmin\Register.cshtml" />
     <Content Include="Areas\Client\Views\web.config" />
     <Content Include="Areas\Client\Views\Shared\_LayoutClient.cshtml" />
     <Content Include="Areas\Client\Views\ProductsClient\Details.cshtml" />
     <Content Include="Areas\Client\Views\ProductsClient\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Shared\Admin_LoaiSp.cshtml" />
+    <Content Include="Areas\Admins\Views\Shared\Admin_Sp.cshtml" />
+    <Content Include="Areas\Admins\Views\Shared\_LayoutAdmin.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -246,7 +248,7 @@
     <Content Include="Views\Accounts\Login.cshtml" />
     <Content Include="Views\Accounts\Register.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\ShowtoCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,6 +17,7 @@ namespace BTL_LTQL.Models
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }

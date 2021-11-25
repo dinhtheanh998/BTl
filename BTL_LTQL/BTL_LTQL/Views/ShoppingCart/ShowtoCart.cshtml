@@ -1,0 +1,84 @@
+﻿@model BTL_LTQL.Models.cartHandle
+
+@{
+    ViewBag.Title = "ShowtoCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <section class="pt-5 pb-5">
+        <div class="container">
+            <div class="row w-100">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <h3 class="display-5 mb-2 text-center">Shopping Cart</h3>
+                    <div class="d-flex align-items-center w-100 mb-3">
+                        <h5 style="margin: 0 208px 0 100px;">Sản Phẩm</h5>
+                        <h5 style="margin-right: 75px;">
+                            Giá
+                        </h5>
+                        <h5 style="margin-right:200px;">Số Lượng</h5>
+                        <h5>Thành Giá</h5>
+
+
+                    </div>
+                    <div style="border-top:1px #ccc solid;" class="pt-3">
+                        @foreach (var item in Model.Items)
+                        {
+                            double total = Convert.ToDouble(item.Product.ProductPrice * item.Quantity);
+                            <div class="container">
+                                <div class="row mb-3">
+                                    <div class="col-md-4 d-flex align-items-center">
+                                        <div class="col-md-6">
+                                            <img src="@item.Product.ProductImageName" alt="Alternate Text" class="rounded" style="width: 120px;height: 100px;object-fit: cover;" />
+                                        </div>
+                                        <div class="col-md-6">@item.Product.ProductName</div>
+                                    </div>
+                                    <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                        <span class="mr-1">@String.Format("{0:#,##0}", item.Product.ProductPrice)</span>
+                                        <span>VNĐ</span>
+                                    </div>
+                                    <div class="col-md-3 d-flex align-items-center">
+                                        <div class="d-flex ">
+                                            <form action="/ShoppingCart/Update_Quantity_Cart" class="" method="post">
+                                                <input type="hidden" value="@item.Product.ProductID" name="ID_Product">
+                                                <div class="d-flex align-items-center">
+                                                    <input type="text" class="text-center productqua" value="@item.Quantity" name="Quantity" style="width: 63px; height: 43px; padding: 0; }">
+                                                    <input type="submit" value="Update" class="btn btn-primary ml-3" style="color:white">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <div class="col-md-2 d-flex justify-content-center align-items-center">
+
+                                        @String.Format("{0:#,##0}", @total)
+
+                                    </div>
+                                    <div class="col-md-2 d-flex justify-content-center align-items-center">
+                                        <form action="/ShoppingCart/Delete/@item.Product.ProductID" class="" method="post">
+                                            <div class="d-flex align-items-center">
+                                                <input type="submit" value="Delete" class="btn btn-primary" style="color:white">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="d-flex justify-content-end mb-3" style="border-top:1px #ccc solid">
+                        <span class="mr-3">Tổng tiền:</span>
+                        <span>@String.Format("{0:#,##0}", Model.Total_money())</span>
+                    </div>
+
+                    <div class="d-flex justify-content-md-start">
+                        <form action="/Products/Index" class="" method="post">
+                            <div class="d-flex align-items-center">
+                                <input type="submit" value="Tiếp tục mua hàng" class="btn btn-primary" style="color:white">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+
