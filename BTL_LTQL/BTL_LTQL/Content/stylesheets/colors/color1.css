@@ -1,0 +1,11 @@
+.flat-contact {
+    border: 1px solid rgb(202, 202, 202);
+    height: 50px;
+    width: 50px;
+    margin-left: 2%;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}

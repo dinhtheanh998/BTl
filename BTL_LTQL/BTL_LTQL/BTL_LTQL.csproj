@@ -167,6 +167,7 @@
     <Compile Include="Models\AutogenKey.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\DonHang.cs" />
     <Compile Include="Models\Encrytion.cs" />
     <Compile Include="Models\LTQLDbcontext.cs" />
     <Compile Include="Models\Product.cs" />
@@ -249,6 +250,7 @@
     <Content Include="Views\Accounts\Register.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\ShoppingCart\ShowtoCart.cshtml" />
+    <Content Include="Views\ShoppingCart\BagCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

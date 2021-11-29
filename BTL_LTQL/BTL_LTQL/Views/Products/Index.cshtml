@@ -21,6 +21,7 @@
                     {
                         <p>
                             Tìm kiếm: @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" class="mt-3 text-white" />
+                            <input  type="button" value="Refresh" onclick="location.href = '@Url.Action("Index", "Products")'"/>
                         </p>
                     }
                 </div>
@@ -49,7 +50,6 @@
                                     @*@Html.ActionLink("Add to Cart", "OrderNow", "ShoppingCart", new { id = item.ProductID }, null)*@
                                     <a href="/ShoppingCart/AddtoCart/@item.ProductID" style="padding:15px 76px">Thêm Vào Giỏ</a>
                                 </div>
-
                             </li>
                         }
                     </ul>

@@ -68,6 +68,10 @@ namespace BTL_LTQL.Models
             var total = items.Sum(s => s.Product.ProductPrice * s.Quantity);
             return (double)total;
         }
+        public int Total_Quantity()
+        {
+            return items.Sum(s => s.Quantity);
+        }
 
         public void RemoveCart(string id)
         {

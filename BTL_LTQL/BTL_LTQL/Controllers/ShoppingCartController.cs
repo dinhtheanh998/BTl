@@ -21,7 +21,7 @@ namespace BTL_LTQL.Controllers
         public cartHandle GetCart()
         {
             cartHandle carthendle = Session["cartHandle"] as cartHandle;
-            if(carthendle == null || Session["cartHandle"] == null)
+            if (carthendle == null || Session["cartHandle"] == null)
             {
                 carthendle = new cartHandle();
                 Session["cartHandle"] = carthendle;
@@ -33,7 +33,7 @@ namespace BTL_LTQL.Controllers
         public ActionResult AddtoCart(string id)
         {
             var pro = db.Products.SingleOrDefault(s => s.ProductID == id);
-            if(pro!=null)
+            if (pro != null)
             {
                 GetCart().Add(pro);
             }
@@ -49,7 +49,7 @@ namespace BTL_LTQL.Controllers
         }
 
 
-        public ActionResult Update_Quantity_Cart(FormCollection form) 
+        public ActionResult Update_Quantity_Cart(FormCollection form)
         {
             cartHandle carthandle = Session["cartHandle"] as cartHandle;
             string id = form["ID_Product"];
@@ -103,7 +103,31 @@ namespace BTL_LTQL.Controllers
             cart.RemoveCart(id);
             return RedirectToAction("ShowtoCart", "ShoppingCart");
         }
+        public PartialViewResult BagCart()
+        {
+            int Quantity_Item = 0;
+            cartHandle cart = Session["cartHandle"] as cartHandle;
+            if (cart != null)
+            {
+                Quantity_Item = cart.Total_Quantity();
+            }
+            ViewBag.infoCart = Quantity_Item;
+            return PartialView("BagCart");
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////
+        //public ActionResult DatHang()
+        //{
+        //    // Kiểm tra đăng nhập
+        //    if (Session["idUser"] == null || Session["idUser"] == "")
+        //    {
+        //        return RedirectToAction("Login", "Accounts");
+        //        Url.Action("ShowtoCart", "ShoppingCart");
+        //    }
+        //    else { }
 
-        
+
+        //    //
+        //    return View();
+        //}
     }
 }
