@@ -20,17 +20,18 @@
                 <div class="Reg-log-wrap">
                     @using (Html.BeginForm())
                     {
-<<<<<<< Updated upstream
-                        <p>
-                            Tìm kiếm: @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" class="mt-3 text-white" />
-                            <input  type="button" value="Refresh" onclick="location.href = '@Url.Action("Index", "Products")'"/>
+
+                        <p class="d-flex">
+                            <input id="SearchString" name="SearchString" type="text" value="" placeholder="Nhập sản phẩm cần tìm" class="rounded">
+                            <input type="submit" value="Tìm kiếm" class="text-white text-white btn btn-round btn-danger text-white" />
+                            
                         </p>
-=======
-                        <div class="d-flex align-items-center"> 
+
+                        @*<div class="d-flex align-items-center"> 
                             <input id="SearchString" name="SearchString" type="text" value="" placeholder="Nhập sản phẩm cần tìm">
                             <input type="submit" value="Tìm kiếm" class="text-white" style="padding: 10px 26px; " />
-                        </div>
->>>>>>> Stashed changes
+                        </div>*@
+
                     }
                 </div> 
                 <div class="divider h54"></div>
@@ -44,6 +45,7 @@
                     <form action="/Products/Kidproduct" method="get">
                         <input type="submit" value="Trẻ Em" class="text-white btn btn-round btn-danger text-white" />
                     </form>
+                    <input type="button" value="Tất Cả" onclick="location.href = '@Url.Action("Index", "Products")'" class="text-white btn btn-round btn-danger text-white" />
                 </div>
                 <div class="divider h54"></div>
                 <div class="product-content product-fourcolumn clearfix">

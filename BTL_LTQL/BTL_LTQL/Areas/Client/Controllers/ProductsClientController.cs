@@ -22,6 +22,31 @@ namespace BTL_LTQL.Areas.Client.Controllers
             return View(products.ToList());
         }
 
+        public ActionResult Menproduct()
+        {
+            var links = from l in db.Products // lấy toàn bộ liên kết
+                        where l.CategoryID == "1"
+                        select l;
+            return View(links);
+        }
+
+        public ActionResult Womenproduct()
+        {
+            var links = from l in db.Products // lấy toàn bộ liên kết
+                        where l.CategoryID == "2"
+                        select l;
+            return View(links);
+        }
+
+        public ActionResult Kidproduct()
+        {
+            var links = from l in db.Products // lấy toàn bộ liên kết
+                        where l.CategoryID == "3"
+                        select l;
+            return View(links);
+        }
+
+
         // GET: Client/ProductsClient/Details/5
         public ActionResult Details(string id)
         {

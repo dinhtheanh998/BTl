@@ -61,16 +61,20 @@ namespace BTL_LTQL.Areas.Admins.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(/*[Bind(Include = "ProductID,ProductName,ProductPrice,ProductDescription,CategoryID")]*/ Product product)
+        public ActionResult Create(/*[Bind(Include = "ProductID,ProductName,ProductPrice,ProductDescription,CategoryID")]*/ Product product , HttpPostedFileBase ProductImgFile)
         {
             if (ModelState.IsValid)
             {
-                string fileName = Path.GetFileNameWithoutExtension(product.ProductImgFile.FileName);
-                string extension = Path.GetExtension(product.ProductImgFile.FileName);
-                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                product.ProductImageName = "/Images/" + fileName;
-                fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
-                product.ProductImgFile.SaveAs(fileName);
+                //string fileName = Path.GetFileNameWithoutExtension(product.ProductImgFile.FileName);
+                //string extension = Path.GetExtension(product.ProductImgFile.FileName);
+                //fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                //product.ProductImageName = "/Images/" + fileName;
+                //fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                //product.ProductImgFile.SaveAs(fileName);
+                string path = uploadimage(ProductImgFile);
+
+                // move this here, so it has value before ModelState.IsValid
+                product.ProductImageName = path;
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -92,6 +96,7 @@ namespace BTL_LTQL.Areas.Admins.Controllers
             {
                 return HttpNotFound();
             }
+            
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
             return View(product);
         }
@@ -101,14 +106,20 @@ namespace BTL_LTQL.Areas.Admins.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,ProductName,ProductPrice,ProductDescription,CategoryID")] Product product)
+        public ActionResult Edit(/*[Bind(Include = "ProductID,ProductName,ProductPrice,ProductDescription,CategoryID")]*/ Product product , HttpPostedFileBase ProductImgFile)
         {
+            string path = uploadimage(ProductImgFile);
+
+            // move this here, so it has value before ModelState.IsValid
+            product.ProductImageName = path;
             if (ModelState.IsValid)
-            {
+            {                            
+                //--------------------------------------
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
             return View(product);
         }
@@ -146,6 +157,40 @@ namespace BTL_LTQL.Areas.Admins.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public string uploadimage(HttpPostedFileBase file)
+        {
+            Random r = new Random();
+            string path = "-1";
+            int random = r.Next();
+            if (file != null && file.ContentLength > 0)
+            {
+                string extension = Path.GetExtension(file.FileName);
+                if (extension.ToLower().Equals(".jpg") || extension.ToLower().Equals(".jpeg") || extension.ToLower().Equals(".png"))
+                {
+                    try
+                    {
+                        path = Path.Combine(Server.MapPath("/Images/"), random + Path.GetFileName(file.FileName));
+                        file.SaveAs(path);
+                        path = "/Images/" + random + Path.GetFileName(file.FileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        path = "-1";
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Only jpg ,jpeg or png formats are acceptable....'); </script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Please select a file'); </script>");
+                path = "-1";
+            }
+            return path;
         }
     }
 }

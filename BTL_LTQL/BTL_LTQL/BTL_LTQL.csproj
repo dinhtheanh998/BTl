@@ -138,6 +138,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,6 +223,9 @@
     <Content Include="Areas\Admins\Views\Shared\Admin_LoaiSp.cshtml" />
     <Content Include="Areas\Admins\Views\Shared\Admin_Sp.cshtml" />
     <Content Include="Areas\Admins\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Client\Views\ProductsClient\Kidproduct.cshtml" />
+    <Content Include="Areas\Client\Views\ProductsClient\Womenproduct.cshtml" />
+    <Content Include="Areas\Client\Views\ProductsClient\Menproduct.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -250,14 +254,16 @@
     <Content Include="Views\Accounts\Register.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\ShoppingCart\ShowtoCart.cshtml" />
-<<<<<<< Updated upstream
     <Content Include="Views\ShoppingCart\BagCart.cshtml" />
-=======
     <Content Include="Views\Products\Menproduct.cshtml" />
     <Content Include="Views\Products\Womenproduct.cshtml" />
     <Content Include="Views\Products\Kidproduct.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
->>>>>>> Stashed changes
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

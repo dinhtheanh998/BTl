@@ -24,16 +24,15 @@ namespace BTL_LTQL.Controllers
                 var linksearch = links.Where(s => s.ProductName.Contains(searchString)); //lọc theo chuỗi tìm kiếm
                 return View(linksearch);
             }
-<<<<<<< Updated upstream
+
             else
             {
                 ViewBag.ThongBao = "Không tìm thấy sản phẩm nào phù hợp.";
             }
                 
             return View(links);
-=======
+
             return View(links);         
->>>>>>> Stashed changes
             var products = db.Products.Include(p => p.Categories);
             //;
         }
