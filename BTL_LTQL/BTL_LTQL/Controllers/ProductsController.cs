@@ -21,17 +21,48 @@ namespace BTL_LTQL.Controllers
                         select l;
             if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
             {
-                links = links.Where(s => s.ProductName.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+                var linksearch = links.Where(s => s.ProductName.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+                return View(linksearch);
             }
+<<<<<<< Updated upstream
             else
             {
                 ViewBag.ThongBao = "Không tìm thấy sản phẩm nào phù hợp.";
             }
                 
             return View(links);
+=======
+            return View(links);         
+>>>>>>> Stashed changes
             var products = db.Products.Include(p => p.Categories);
-            //return View(products.ToList());
+            //;
         }
+
+        public ActionResult Menproduct()
+        {
+            var links = from l in db.Products // lấy toàn bộ liên kết
+                        where l.CategoryID == "1"
+                        select l;
+            return View(links);
+        }
+
+        public ActionResult Womenproduct()
+        {
+            var links = from l in db.Products // lấy toàn bộ liên kết
+                        where l.CategoryID == "2"
+                        select l;
+            return View(links);
+        }
+
+        public ActionResult Kidproduct()
+        {
+            var links = from l in db.Products // lấy toàn bộ liên kết
+                        where l.CategoryID == "3"
+                        select l;
+            return View(links);
+        }
+
+
 
         // GET: Products/Details/5
         public ActionResult Details(string id)

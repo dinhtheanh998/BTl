@@ -250,7 +250,14 @@
     <Content Include="Views\Accounts\Register.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\ShoppingCart\ShowtoCart.cshtml" />
+<<<<<<< Updated upstream
     <Content Include="Views\ShoppingCart\BagCart.cshtml" />
+=======
+    <Content Include="Views\Products\Menproduct.cshtml" />
+    <Content Include="Views\Products\Womenproduct.cshtml" />
+    <Content Include="Views\Products\Kidproduct.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
