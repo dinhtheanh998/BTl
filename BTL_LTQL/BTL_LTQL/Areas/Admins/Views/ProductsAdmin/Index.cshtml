@@ -71,7 +71,7 @@
 
                             <li class="product-item kid woman">
                                 <div class="product-thumb clearfix">
-                                    <a href="#">
+                                    <a href="~/Admins/ProductsAdmin/Details/@item.ProductID">
                                         <img height="300" src="@item.ProductImageName" alt="image">
                                     </a>
                                 </div>
@@ -82,15 +82,17 @@
                                             <span class="amount">@item.ProductPrice</span>
                                         </ins>
                                     </div>
-
+                                    <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; ">
+                                        @item.ProductDescription
+                                    </div>
                                 </div>
                                 <div class="product-actions-wrap">
                                     <div class="product-action">
-                                        <a class="product-action-link" href="/Admins/ProductsAdmin/Delete/@item.ProductID">DELETE</a>
+                                        <a class="product-action-link" href="/Admins/ProductsAdmin/Delete/@item.ProductID">Xóa</a>
                                     </div>
                                     <div class="senparate-product-action"></div>
                                     <div class="product-action">
-                                        <a class="product-action-link" href="/Admins/ProductsAdmin/Edit/@item.ProductID">Edit</a>
+                                        <a class="product-action-link" href="/Admins/ProductsAdmin/Edit/@item.ProductID">Sửa</a>
                                     </div>
                                 </div>
 

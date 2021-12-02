@@ -163,11 +163,20 @@
     <Compile Include="Migrations\202111041448531_dinhthe.Designer.cs">
       <DependentUpon>202111041448531_dinhthe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111301655581_validate.cs" />
+    <Compile Include="Migrations\202111301655581_validate.Designer.cs">
+      <DependentUpon>202111301655581_validate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112011305249_createDH.cs" />
+    <Compile Include="Migrations\202112011305249_createDH.Designer.cs">
+      <DependentUpon>202112011305249_createDH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AutogenKey.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Chitietdonhang.cs" />
     <Compile Include="Models\DonHang.cs" />
     <Compile Include="Models\Encrytion.cs" />
     <Compile Include="Models\LTQLDbcontext.cs" />
@@ -298,6 +307,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111041448531_dinhthe.resx">
       <DependentUpon>202111041448531_dinhthe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111301655581_validate.resx">
+      <DependentUpon>202111301655581_validate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112011305249_createDH.resx">
+      <DependentUpon>202112011305249_createDH.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

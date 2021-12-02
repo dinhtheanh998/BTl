@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row w-100">
                 <div class="col-lg-12 col-md-12 col-12">
-                    <h3 class="display-5 mb-2 text-center">Shopping Cart</h3>
+                    <h3 class="display-5 mb-2 text-center">Giỏ Hàng</h3>
                     <div class="d-flex align-items-center w-100 mb-3">
                         <h5 style="margin: 0 208px 0 100px;">Sản Phẩm</h5>
                         <h5 style="margin-right: 75px;">
@@ -43,7 +43,7 @@
                                                 <input type="hidden" value="@item.Product.ProductID" name="ID_Product">
                                                 <div class="d-flex align-items-center">
                                                     <input type="text" class="text-center productqua" value="@item.Quantity" name="Quantity" style="width: 63px; height: 43px; padding: 0; }">
-                                                    <input type="submit" value="Update" class="btn btn-primary ml-3" style="color:white">
+                                                    <input type="submit" value="Cập Nhật" class="text-white btn btn-round btn-danger text-white ml-3" style="color:white">
                                                 </div>
                                             </form>
                                         </div>
@@ -57,7 +57,7 @@
                                     <div class="col-md-2 d-flex justify-content-center align-items-center">
                                         <form action="/ShoppingCart/Delete/@item.Product.ProductID" class="" method="post">
                                             <div class="d-flex align-items-center">
-                                                <input type="submit" value="Delete" class="btn btn-primary" style="color:white">
+                                                <input type="submit" value="Xóa" class="text-white btn btn-round btn-danger text-white" style="color:white">
                                             </div>
                                         </form>
                                     </div>
@@ -70,16 +70,27 @@
                         <span>@String.Format("{0:#,##0}", Model.Total_money())</span>
                     </div>
 
-                    <div class="d-flex justify-content-md-start">
+                    <div class="d-flex justify-content-between">
                         <form action="/Products/Index" class="" method="post">
                             <div class="d-flex align-items-center">
-                                <input type="submit" value="Tiếp tục mua hàng" class="btn btn-primary" style="color:white">
+                                <input type="submit" value="Tiếp tục mua hàng" class="text-white btn btn-round btn-danger text-white" style="color:white">
 
                             </div>
                         </form>
+                        <form action="/ShoppingCart/DatHang" class="" method="post">
+                            <div class="d-flex align-items-center">
+                                <input type="submit" value="Đặt Hàng" class="float-right text-white btn btn-round btn-danger text-white" style="color:white">
+
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
     </section>
 </div>
+
+
+
+
 

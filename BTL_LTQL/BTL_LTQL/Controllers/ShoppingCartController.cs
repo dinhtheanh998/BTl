@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BTL_LTQL.Controllers
 {
@@ -43,7 +44,11 @@ namespace BTL_LTQL.Controllers
         public ActionResult ShowtoCart()
         {
             if (Session["cartHandle"] == null)
-                return RedirectToAction("ShowtoCart", "ShoppingCart");
+            {
+                //return RedirectToAction("ShowtoCart", "ShoppingCart");  
+                return RedirectToAction("Index", "Products");
+
+            }
             cartHandle carthendle = Session["cartHandle"] as cartHandle;
             return View(carthendle);
         }
@@ -57,6 +62,8 @@ namespace BTL_LTQL.Controllers
             carthandle.Update_Quantity(id, quantity);
             return RedirectToAction("ShowtoCart", "ShoppingCart");
         }
+
+        #region
 
         //public ActionResult OrderNow(string id)
         //{
@@ -96,11 +103,17 @@ namespace BTL_LTQL.Controllers
         //    }
         //    return -1;
         //}
-
+        #endregion
         public ActionResult Delete(string id)
         {
-            cartHandle cart = Session["cartHandle"] as cartHandle;
+            cartHandle cart = Session["cartHandle"] as cartHandle;            
             cart.RemoveCart(id);
+            //kiểm tra nếu hết hàng trong cart thì xóa session
+            if(cart.Items.Count()==0)
+            {
+                Session["cartHandle"] = null;
+                return RedirectToAction("Index", "Products");
+            }
             return RedirectToAction("ShowtoCart", "ShoppingCart");
         }
         public PartialViewResult BagCart()
@@ -110,24 +123,45 @@ namespace BTL_LTQL.Controllers
             if (cart != null)
             {
                 Quantity_Item = cart.Total_Quantity();
-            }
+            }                            
             ViewBag.infoCart = Quantity_Item;
+           
             return PartialView("BagCart");
         }
-        /////////////////////////////////////////////////////////////////////////////////////////
-        //public ActionResult DatHang()
-        //{
-        //    // Kiểm tra đăng nhập
-        //    if (Session["idUser"] == null || Session["idUser"] == "")
-        //    {
-        //        return RedirectToAction("Login", "Accounts");
-        //        Url.Action("ShowtoCart", "ShoppingCart");
-        //    }
-        //    else { }
 
 
-        //    //
-        //    return View();
-        //}
+
+        
+        [Authorize]
+        public ActionResult DatHang()
+        {
+            
+
+            if (Session["cartHandle"]==null)
+            {
+                RedirectToAction("Index", "Products");
+            }
+            DonHang ddh = new DonHang();
+            Account acc = new Account();
+            cartHandle gh = GetCart();
+            ddh.UserName = acc.UserName;
+            ddh.Ngaydat = DateTime.Now;
+            ddh.NgayGiao = DateTime.Now;
+            db.DonHangs.Add(ddh);
+            db.SaveChanges();
+            foreach(var item in gh.Items)
+            {
+                Chitietdonhang ctdh = new Chitietdonhang();
+                ctdh.DonHangID = ddh.DonHangID;
+                ctdh.ProductID = item.Product.ProductID;
+                ctdh.Quantity = item.Quantity;
+                ctdh.ProductPrice = item.Product.ProductPrice;
+                db.Chitietdonhangs.Add(ctdh);
+            }
+           
+            db.SaveChanges();
+            Session["cartHandle"] = null;
+            return RedirectToAction("Index","Products");
+        }
     }
 }

@@ -71,6 +71,7 @@ namespace BTL_LTQL.Areas.Admins.Controllers
                 //product.ProductImageName = "/Images/" + fileName;
                 //fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
                 //product.ProductImgFile.SaveAs(fileName);
+
                 string path = uploadimage(ProductImgFile);
 
                 // move this here, so it has value before ModelState.IsValid
@@ -171,8 +172,11 @@ namespace BTL_LTQL.Areas.Admins.Controllers
                 {
                     try
                     {
+                        // kết hợp đường dẫn file Images + với random và tên file
                         path = Path.Combine(Server.MapPath("/Images/"), random + Path.GetFileName(file.FileName));
+                        //Lưu file đúng với đường dẫn vừa tạo ở trên
                         file.SaveAs(path);
+                        // gán path bằng với đường dẫn file vừa lưu
                         path = "/Images/" + random + Path.GetFileName(file.FileName);
                     }
                     catch (Exception ex)
@@ -182,12 +186,12 @@ namespace BTL_LTQL.Areas.Admins.Controllers
                 }
                 else
                 {
-                    Response.Write("<script>alert('Only jpg ,jpeg or png formats are acceptable....'); </script>");
+                    Response.Write("<script>alert('Vui lòng chỉ thêm các định dạng jpg ,jpeg or png....'); </script>");
                 }
             }
             else
             {
-                Response.Write("<script>alert('Please select a file'); </script>");
+                Response.Write("<script>alert('Vui lòng thêm file'); </script>");
                 path = "-1";
             }
             return path;

@@ -10,6 +10,8 @@ namespace BTL_LTQL.Models
     public class Account
     {
         [Required]
+        [RegularExpression(@"^(?:\w|\d)+$")]
+
         [Key]
         public string UserName { get; set; }
         [Required]
@@ -20,6 +22,7 @@ namespace BTL_LTQL.Models
         public string ConfirmPassword { get; set; }
         [StringLength(10)]
         public string RoleID { get; set; }
-//         hehe
+//      
+        public ICollection<DonHang> donHangs { get; set; }
     }
 }

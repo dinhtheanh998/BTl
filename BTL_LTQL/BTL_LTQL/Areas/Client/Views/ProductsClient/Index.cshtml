@@ -42,7 +42,7 @@
                     <form action="/Client/ProductsClient/Kidproduct" method="get">
                         <input type="submit" value="Trẻ Em" class="text-white btn btn-round btn-danger text-white" />
                     </form>
-                    <input type="button" value="Tất Cả" onclick="location.href = '@Url.Action("Index", "Products")'" class="text-white btn btn-round btn-danger text-white" />
+                    <input type="button" value="Tất Cả" onclick="location.href = '@Url.Action("Index", "ProductsClient")'" class="text-white btn btn-round btn-danger text-white" />
                 </div>
                 <div class="divider h54"></div>
                 <div class="product-content product-fourcolumn clearfix">
@@ -52,7 +52,7 @@
 
                             <li class="product-item kid woman">
                                 <div class="product-thumb clearfix">
-                                    <a href="/Products/Details/@item.ProductID">
+                                    <a href="/Client/ProductsClient/Details/@item.ProductID">
                                         <img height="300" src=@item.ProductImageName alt="image">
                                     </a>
                                 </div>

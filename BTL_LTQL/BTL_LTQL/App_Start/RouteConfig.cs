@@ -14,6 +14,18 @@ namespace BTL_LTQL
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Sanpham",
+                url: "Index/{id}",
+                defaults: new { area = "Client", controller = "ProductsClient", action = "Index", id = UrlParameter.Optional }
+            );
+                      
+            routes.MapRoute(
+                name: "GioHang",
+                url: "gio-hang",
+                defaults: new { controller = "ShoppingCart", action = "ShowtoCart", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Products", action = "Index", id = UrlParameter.Optional }

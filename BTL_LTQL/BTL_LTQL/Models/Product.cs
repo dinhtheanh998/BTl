@@ -13,6 +13,7 @@ namespace BTL_LTQL.Models
         public string ProductID { get; set; }
         
         public string ProductName { get; set; }
+        [RegularExpression("^[1-9][0-9]+$",ErrorMessage ="Giá chỉ được là số và không bắt đầu bằng 0")]
         public float ProductPrice { get; set; }
         public string ProductDescription { get; set; }
 
@@ -22,5 +23,6 @@ namespace BTL_LTQL.Models
         public string CategoryID { get; set; }
         [ForeignKey("CategoryID")]
         public virtual Category Categories { get; set; }
+        public virtual ICollection <Chitietdonhang> Chitietdonhangs { get; set; }
     }
 }
