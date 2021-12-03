@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BTL_LTQL.Models.DonHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="divider h54"></div>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<div class="col-8 m-auto">
+    <table class="table">
+        <tr>
+            <th>
+               Mã đơn hàng
+            </th>
+            <th>
+                Ngày đặt
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayGiao)
+            </th>
+            <th>
+                Tài khoản đặt
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonHangID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ngaydat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayGiao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.DonHangID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.DonHangID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.DonHangID })
+                </td>*@
+            </tr>
+        }
+
+    </table>
+</div>

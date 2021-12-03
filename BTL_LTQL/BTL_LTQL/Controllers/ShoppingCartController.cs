@@ -129,10 +129,7 @@ namespace BTL_LTQL.Controllers
            
             return PartialView("BagCart");
         }
-
-
-
-        
+                
         [Authorize]
         public ActionResult DatHang()
         {
@@ -144,7 +141,6 @@ namespace BTL_LTQL.Controllers
                 RedirectToAction("Index", "Products");
             }
             DonHang ddh = new DonHang();
-            Account acc = new Account();
             cartHandle gh = GetCart();
             ddh.UserName = user;
             ddh.Ngaydat = DateTime.Now;

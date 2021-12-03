@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BTL_LTQL.Models.Chitietdonhang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+
+<div class="divider h54"></div>
+
+<div class="col-8 m-auto">
+    @using (Html.BeginForm())
+    {
+
+        <p class="d-flex">
+            <input id="SearchString" name="SearchString" type="text" value="" placeholder="Nhập ID cần tìm" class="rounded">
+            <input type="submit" value="Tìm kiếm" class="text-white text-white btn btn-round btn-danger text-white" />
+
+        </p>
+    }
+
+<table class="table">
+        <tr>
+            <th>
+                Mã đơn hàng
+            </th>
+            <th>
+                Tên tài khoản
+            </th>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Giá
+            </th>
+            <th>
+                Số lượng
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonHang.DonHangID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonHang.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Products.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>*@
+            </tr>
+        }
+
+</table>
+</div>
+

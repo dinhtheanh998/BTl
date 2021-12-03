@@ -152,6 +152,8 @@
     <Compile Include="Areas\Admins\AdminsAreaRegistration.cs" />
     <Compile Include="Areas\Admins\Controllers\AccountAdminController.cs" />
     <Compile Include="Areas\Admins\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admins\Controllers\ChitietdonhangsController.cs" />
+    <Compile Include="Areas\Admins\Controllers\DonHangsController.cs" />
     <Compile Include="Areas\Admins\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admins\Controllers\ProductsAdminController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
@@ -247,6 +249,12 @@
     <Content Include="Areas\Admins\Views\Shared\Admin_LoaiSp.cshtml" />
     <Content Include="Areas\Admins\Views\Shared\Admin_Sp.cshtml" />
     <Content Include="Areas\Admins\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Admins\Views\DonHangs\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\DonHangs\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\DonHangs\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Chitietdonhangs\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\Chitietdonhangs\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Chitietdonhangs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
