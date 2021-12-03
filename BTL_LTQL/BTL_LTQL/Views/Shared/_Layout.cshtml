@@ -38,14 +38,15 @@
                             </ul>
                             <ul class="menu">
                                 @Html.Action("BagCart", "ShoppingCart")
-                                <li>
+                                @*<li>
                                     <a href="/Accounts/Register">Tạo Tài Khoản</a>
 
                                 </li>
                                 <li>
                                     <a href="/Accounts/Login">Đăng Nhập</a>
 
-                                </li>
+                                </li>*@
+                                @Html.Partial("_LoginPatial")
                             </ul>
 
                         </nav><!-- /.mainnav -->

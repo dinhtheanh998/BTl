@@ -1,4 +1,5 @@
 ﻿using BTL_LTQL.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -135,7 +136,8 @@ namespace BTL_LTQL.Controllers
         [Authorize]
         public ActionResult DatHang()
         {
-            
+            var user = System.Web.HttpContext.Current.User.Identity.GetUserName();
+
 
             if (Session["cartHandle"]==null)
             {
@@ -144,7 +146,7 @@ namespace BTL_LTQL.Controllers
             DonHang ddh = new DonHang();
             Account acc = new Account();
             cartHandle gh = GetCart();
-            ddh.UserName = acc.UserName;
+            ddh.UserName = user;
             ddh.Ngaydat = DateTime.Now;
             ddh.NgayGiao = DateTime.Now;
             db.DonHangs.Add(ddh);

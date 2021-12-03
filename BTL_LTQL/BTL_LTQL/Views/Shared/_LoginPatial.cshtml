@@ -1,0 +1,22 @@
+﻿@if (Request.IsAuthenticated)
+{
+    @Html.AntiForgeryToken()
+    <li>
+        <a href="/Accounts/Register">Tạo Tài Khoản</a>
+
+    </li>
+    <li>
+        <a href="/Accounts/Logout">Đăng Xuất</a>
+    </li>
+}
+else
+{
+    <li>
+        <a href="/Accounts/Register">Tạo Tài Khoản</a>
+
+    </li>
+    <li>
+        <a href="/Accounts/Login">Đăng Nhập</a>
+    </li>
+}
+

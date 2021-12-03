@@ -54,7 +54,7 @@ namespace BTL_LTQL.Controllers
             }
             else if (CheckSession() == 2)
             {
-                return RedirectToAction("Index", "ProductsClient", new { Area = "Client" });
+                return RedirectToAction("Index", "Products", new { Area = "" });
             }
             ViewBag.ReturnUrl = returnUrl;
             return View();
@@ -104,7 +104,7 @@ namespace BTL_LTQL.Controllers
                 else if (CheckSession() == 2)
 
                 {
-                    return RedirectToAction("Index", "ProductsClient", new { Area = "Client" });
+                    return RedirectToAction("Index", "Products", new { Area = "" });
                 }
 
             }
