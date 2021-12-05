@@ -45,6 +45,7 @@
                 </td>
                 <td class="f-600">
                     @Html.DisplayFor(modelItem => item.UserName)
+                    <a class="btn btn-primary float-right" href="/Admins/DonHangs/Thongtinkhachhang/@item.UserName">Xem</a>
                 </td>
                 <td class="handle-wrap-btn">
                     <form action="/Admins/DonHangs/Set_Ngay_Giao/@item.DonHangID" method="post">

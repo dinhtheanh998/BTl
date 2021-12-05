@@ -30,6 +30,12 @@ namespace BTL_LTQL.Areas.Admins.Controllers
             return View(result);
         }
 
+        public ActionResult Thongtinkhachhang(string id)
+        {
+            Account acc = db.Accounts.Find(id);
+            return View(acc);
+        }
+
         public ActionResult Details(int? id)
         {          
             if (id == null)
@@ -141,5 +147,8 @@ namespace BTL_LTQL.Areas.Admins.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+
     }
 }

@@ -29,13 +29,19 @@ namespace BTL_LTQL.Controllers
         [AllowAnonymous]
         public ActionResult Register(Account acc)
         {
-            if (ModelState.IsValid)
+            try
             {
-                acc.Password = ecry.PassWordEncrytion(acc.Password);
-                acc.ConfirmPassword = ecry.PassWordEncrytion(acc.ConfirmPassword);
-                db.Accounts.Add(acc);
-                db.SaveChanges();
-                return RedirectToAction("Login", "Accounts");
+                if (ModelState.IsValid)
+                {
+                    acc.Password = ecry.PassWordEncrytion(acc.Password);
+                    acc.ConfirmPassword = ecry.PassWordEncrytion(acc.ConfirmPassword);
+                    db.Accounts.Add(acc);
+                    db.SaveChanges();
+                    return RedirectToAction("Login", "Accounts");
+                }
+            }catch
+            {
+                ModelState.AddModelError("", "Tài khoản đã tồn tại");
             }
             return View(acc);
         }

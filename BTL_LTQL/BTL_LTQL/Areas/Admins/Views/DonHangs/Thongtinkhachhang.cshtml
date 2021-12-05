@@ -1,0 +1,40 @@
+﻿@model BTL_LTQL.Models.Account
+@{
+    ViewBag.Title = "Thongtinkhachhang";
+    Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container">
+    <h4>Thông tin khách hàng</h4>
+    <hr />
+    <div>
+        <div class="mb-3">
+            <span class="label-acc">Tên đăng nhập :</span>
+            <span class="acc-content">@Model.UserName</span>
+        </div>
+        <div class="mb-3">
+            <span class="label-acc">Họ và tên :</span>
+            <span class="acc-content">@Model.HoTen</span>
+        </div>
+        <div class="mb-3">
+            <span class="label-acc">Địa chỉ :</span>
+            <span class="acc-content">@Model.diachi</span>
+        </div>
+        <div class="mb-3">
+            <span class="label-acc">Số điện thoại :</span>
+            <span class="acc-content">@Model.sodienthoai</span>
+        </div>
+    </div>
+    <hr/>
+    <a href="~/Admins/DonHangs/Index" class="btn btn-primary">Quay Lại</a>
+</div>
+
+<style>
+    .label-acc,
+    .acc-content {
+        font-size:20px
+    }
+    .acc-content {
+        color: #f63440
+    }
+</style>
