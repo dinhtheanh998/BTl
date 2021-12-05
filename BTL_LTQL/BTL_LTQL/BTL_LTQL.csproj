@@ -200,6 +200,10 @@
     <Compile Include="Migrations\202112050758465_add_field_account.Designer.cs">
       <DependentUpon>202112050758465_add_field_account.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112051037379_1K.cs" />
+    <Compile Include="Migrations\202112051037379_1K.Designer.cs">
+      <DependentUpon>202112051037379_1K.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AutogenKey.cs" />
@@ -210,6 +214,7 @@
     <Compile Include="Models\Encrytion.cs" />
     <Compile Include="Models\LTQLDbcontext.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ReadDataFromExcelFile.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\UserRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,6 +245,12 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\1.jpg" />
+    <Content Include="Images\pexels-elle-hughes-1549200.jpg" />
+    <Content Include="Images\pexels-evg-culture-1126993.jpg" />
+    <Content Include="Images\pixel123.jpg" />
+    <Content Include="Images\slide1.jpg" />
+    <Content Include="Images\slide2.jpg" />
+    <Content Include="Images\wallpaperflare.com_wallpaper.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admins\Views\web.config" />
@@ -349,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112050758465_add_field_account.resx">
       <DependentUpon>202112050758465_add_field_account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112051037379_1K.resx">
+      <DependentUpon>202112051037379_1K.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

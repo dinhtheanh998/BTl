@@ -4,6 +4,74 @@
     Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-@*<script>
-    alert("Bạn đang dùng tài khoản Administrator")
-</script>*@
+<div class="slide">
+    <div class="container-2">
+        <div class="slider-main">
+            <div class="slide-item"><img src="~/Images/pexels-elle-hughes-1549200.jpg" alt="Alternate Text" /></div>
+            <div class="slide-item"><img src="~/Images/pexels-evg-culture-1126993.jpg" alt="Alternate Text" /></div>
+            <div class="slide-item"><img src="~/Images/wallpaperflare.com_wallpaper.jpg" alt="Alternate Text" /></div>
+            <div class="slide-item"><img src="~/Images/slide1.jpg" alt="Alternate Text" /></div>
+            <div class="slide-item"><img src="~/Images/slide2.jpg" alt="Alternate Text" /></div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .slide {
+        max-width: 1000px;
+        margin: 25px auto;
+        position: relative;
+    }
+
+    .container-2 {
+        width: 100%;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .slider-main {
+        display: flex;
+        position: relative;        
+        height: 100%;
+    }
+    
+
+    .slide-item {
+        height: 100%;
+        width: 100%;
+        flex: 1 0 100%;
+        user-select: none;
+        display: none;
+    }
+
+    .slide-item img {
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+      object-fit: cover;
+     }
+
+</style>
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+    function showSlides() {
+        var i;
+        //var slidemain = document.querySelector(".slider-main");
+        var slides = document.getElementsByClassName("slide-item");
+        //var itemWidth = document.querySelector(".slide-item").offsetWidth;
+        //var position = 0;
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>
