@@ -39,9 +39,9 @@
             </div>
 
             <div class="form-group">
-                <label class="ml-3"> Mô Tả</label>
+                <label class="ml-3"> Mô tả sản phẩm</label>
 
-               @* @Html.LabelFor(model => model.ProductDescription, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                @* @Html.LabelFor(model => model.ProductDescription, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.ProductDescription, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.ProductDescription, "", new { @class = "text-danger" })
@@ -61,21 +61,21 @@
             <div class="form-group">
                 <label class="ml-3">Ảnh sản phẩm</label>
 
-               @* @Html.LabelFor(model => model.ProductImageName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                @* @Html.LabelFor(model => model.ProductImageName, htmlAttributes: new { @class = "control-label col-md-2" })*@
                 <div class="col-md-10">
                     <input type="file" name="ProductImgFile" id="ProductImgFile" required />
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Lưu" class="text-white btn btn-round btn-danger text-white" />
+            <div class="d-flex form-group">
+                <div class="col-md-10">
+                    <a class="btn btn-primary mr-xl-auto" href="/Admins/ProductsAdmin/Index">Quay Lại</a>
+                    <input type="submit" value="Lưu" class="text-white btn btn-round btn-danger text-white handle-btn" />
                 </div>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+

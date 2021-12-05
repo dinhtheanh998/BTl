@@ -24,7 +24,7 @@
         </p>
     }
 
-<table class="table">
+    <table class="table">
         <tr>
             <th>
                 Mã đơn hàng
@@ -44,31 +44,27 @@
         </tr>
 
         @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DonHang.DonHangID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DonHang.UserName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Products.ProductName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductPrice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
-                @*<td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                    </td>*@
-            </tr>
+        {            
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DonHang.DonHangID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DonHang.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Products.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td> 
+                </tr>
+            
         }
 
-</table>
-</div>
+        </table>
+    </div>
 

@@ -16,8 +16,14 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="~/content/stylesheets/style.css">
-
-
+    <style>
+        #mainnav > ul > li > a.f-600 {
+            font-weight: 600;
+        }
+        .bg-custom {
+            background-color:#f6f8f9;
+        }
+    </style>
 </head>
 <body class="header_sticky header-style-1 has-menu-extra">
     <!-- Preloader -->
@@ -27,13 +33,11 @@
             <!-- Header -->
             <header id="header" class="header header-container clearfix">
                 <div class="container clearfix" id="site-header-inner">
-                    <div class="mobile-button"><span></span></div>
-
                     <div class="nav-wrap">
                         <nav id="mainnav" class="mainnav">
                             <ul class="menu">
                                 <li class="active">
-                                    <a href="/Products/Index">Trang Chủ</a>
+                                    <a href="/Products/Index" class="f-600">Trang Chủ</a>
                                 </li>
                             </ul>
                             <ul class="menu">
@@ -55,7 +59,9 @@
             </header><!-- /header -->
         </div><!-- /#site-header-wrap -->
     </div>
+    <div class="bg-custom">
     @RenderBody()
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false);

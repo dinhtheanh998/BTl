@@ -1,0 +1,27 @@
+﻿.handle-wrap-btn {
+    width: 100px;
+}
+
+.label-table {
+    background-color: #f63440;
+    color: white;
+    font-weight: 600
+}
+
+input[type="submit"].handle-btn {
+    padding: 4px 17px;
+}
+
+input[type="submit"].handle-btn:hover{
+    background-color:rgba(246,52,64,0.8)
+}
+
+.f-600,
+#mainnav > ul > li > a.f-600 {
+        font-weight: 600
+}
+
+
+.label-table th {
+    text-align:center;
+}

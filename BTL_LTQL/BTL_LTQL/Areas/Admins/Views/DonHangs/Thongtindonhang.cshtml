@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BTL_LTQL.Models.Chitietdonhang>
+
+@{
+    ViewBag.Title = "Thongtindonhang";
+    Layout = "~/Areas/Admins/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="divider h54"></div>
+
+<div class="container">
+    <h2 class="text-center">Thông Tin Đơn Hàng</h2>
+</div>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+
+<div class="divider h54"></div>
+
+<div class="col-8 m-auto">
+    <table class="table">
+        <tr class="label-table">
+            <th>
+                Mã đơn hàng
+            </th>
+            <th>
+                Tên tài khoản
+            </th>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Giá
+            </th>
+            <th>
+                Số lượng
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="f-600">
+                    @Html.DisplayFor(modelItem => item.DonHang.DonHangID)
+                </td>
+                <td class="f-600">
+                    @Html.DisplayFor(modelItem => item.DonHang.UserName)
+                </td>
+                <td class="f-600">
+                    @Html.DisplayFor(modelItem => item.Products.ProductName)
+                </td>
+                <td class="f-600">
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td class="f-600">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+            </tr>
+
+        }
+    </table>
+    <a href="Admins/Donhangs/Index" class="btn btn-primary">Quay Lại</a>
+</div>
+
+
+

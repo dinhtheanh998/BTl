@@ -5,7 +5,7 @@
     Layout = "~/Areas/Admins/Views/Shared/Admin_LoaiSp.cshtml";
 }
 
-<h2 class="label-reg-log-text">Edit</h2>
+<h2 class="label-reg-log-text">Sửa tên loại sản phẩm</h2>
 
 @using (Html.BeginForm())
 {
@@ -18,23 +18,23 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.CategoryID)
 
+            <label> Tên Loại</label>
             <div class="form-group">
-                @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+            <div class="d-flex form-group">
+                <div class="col-md-10">
+                    <a class="btn btn-primary mr-lg-auto f-600" href="/Admins/Categories/Index">Quay Lại</a>
+                    <input type="submit" value="Lưu" class="btn btn-primary text-white handle-btn " />
                 </div>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+<style></style>
+

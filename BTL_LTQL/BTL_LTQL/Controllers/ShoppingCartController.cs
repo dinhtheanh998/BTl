@@ -20,6 +20,7 @@ namespace BTL_LTQL.Controllers
             return View();
         }
 
+        //lấy giỏ hàng
         public cartHandle GetCart()
         {
             cartHandle carthendle = Session["cartHandle"] as cartHandle;
@@ -31,7 +32,7 @@ namespace BTL_LTQL.Controllers
             return carthendle;
         }
 
-
+        //Thêm sản phẩm vào giỏ
         public ActionResult AddtoCart(string id)
         {
             var pro = db.Products.SingleOrDefault(s => s.ProductID == id);
@@ -133,18 +134,22 @@ namespace BTL_LTQL.Controllers
         [Authorize]
         public ActionResult DatHang()
         {
+            //lấy ra userName vừa đăng nhập 
             var user = System.Web.HttpContext.Current.User.Identity.GetUserName();
-
-
             if (Session["cartHandle"]==null)
             {
                 RedirectToAction("Index", "Products");
             }
+
+            //tạo đối tượng đơn hàng
             DonHang ddh = new DonHang();
+            //lấy ra giỏ hàng
             cartHandle gh = GetCart();
+            //gán userName trong đơn hàng bằng UserName vừa đăng nhập
             ddh.UserName = user;
-            ddh.Ngaydat = DateTime.Now;
-            ddh.NgayGiao = DateTime.Now;
+            ddh.Ngaydat = DateTime.Today;
+            //string nd = DateTime.Today.AddDays(3).ToString();
+            //ddh.NgayGiao = DateTime.Parse(nd);
             db.DonHangs.Add(ddh);
             db.SaveChanges();
             foreach(var item in gh.Items)

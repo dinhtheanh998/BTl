@@ -5,20 +5,16 @@
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <title>Online Shop</title>
-
     <meta name="author" content="themesflat.com">
-
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
     <!-- Theme Style -->
     <link href="~/Content/stylesheets/shortcodes.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/style.css">
     <!-- Bootstrap  -->
     <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @Styles.Render("~/Content/css")
 </head>
 <body class="header_sticky header-style-1 has-menu-extra">
     <!-- Preloader -->
@@ -32,25 +28,28 @@
                     <div class="nav-wrap">
                         <nav id="mainnav" class="mainnav">
                             <ul class="menu">
-                                <li class="menu-item" onclick="location.href='link.html'">
-                                    <a href="/Admins/Homeadmin/Index">HOME</a>
+                                <li class=" menu-item ">
+                                    <a href="/Admins/Homeadmin/Index" class="f-600">HOME</a>
                                 </li>
-                                <li class="active menu-item">
-                                    <a href="/Admins/Categories/Index">Loại Sản Phẩm</a>
+                                <li class="menu-item active">
+                                    <a href="/Admins/Categories/Index" class="f-600">Loại Sản Phẩm</a>
 
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/Admins/ProductsAdmin/Index">Sản Phẩm</a>
+                                    <a href="/Admins/ProductsAdmin/Index" class="f-600">Sản Phẩm</a>
 
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/Admins/DonHangs/Index" class="f-600">Đơn hàng</a>
                                 </li>
                             </ul>
                             <ul>
                                 <li>
-                                    <a href="/Admins/AccountAdmin/Register">Tạo Tài Khoản</a>
+                                    <a href="/Admins/AccountAdmin/Register" class="f-600">Tạo Tài Khoản</a>
 
                                 </li>
                                 <li>
-                                    <a href="/Accounts/Logout">Đăng Xuất</a>
+                                    <a href="/Accounts/Logout" class="f-600">Đăng Xuất</a>
 
                                 </li>
                             </ul>
@@ -61,6 +60,3 @@
         </div><!-- /#site-header-wrap -->
     </div>
     @RenderBody()
-
-    <!-- Footer -->
-   

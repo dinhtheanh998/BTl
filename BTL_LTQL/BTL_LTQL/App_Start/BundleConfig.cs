@@ -25,7 +25,8 @@ namespace BTL_LTQL
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/stylesheets/style.css"));
+                      "~/Content/stylesheets/style.css",
+                      "~/Content/Admin/StyleTable.css"));
 
 
         }

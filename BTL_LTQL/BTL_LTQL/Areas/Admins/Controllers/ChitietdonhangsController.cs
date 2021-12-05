@@ -15,14 +15,16 @@ namespace BTL_LTQL.Areas.Admins.Controllers
         private LTQLDbcontext db = new LTQLDbcontext();
 
         // GET: Admins/Chitietdonhangs
-        public ActionResult Index(int searchString = 0)
+        public ActionResult Index(int? searchString)
         {
+
+
             IQueryable<int> genreQuery = from m in db.Chitietdonhangs
-                         orderby m.DonHangID
-                         select m.DonHangID;
+                                         orderby m.DonHangID
+                                         select m.DonHangID;
             var ctdh = from m in db.Chitietdonhangs
-                           select m;
-            if (searchString!=0) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+                       select m;
+            if (searchString != 0) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
             {
                 ctdh = ctdh.Where(x => x.DonHangID == searchString);
                 return View(ctdh);
@@ -34,7 +36,7 @@ namespace BTL_LTQL.Areas.Admins.Controllers
             }
             return View(ctdh);
             var chitietdonhangs = db.Chitietdonhangs.Include(c => c.DonHang).Include(c => c.Products);
-            //return View(chitietdonhangs.ToList());
+            return View(chitietdonhangs.ToList());
         }
 
         // GET: Admins/Chitietdonhangs/Details/5

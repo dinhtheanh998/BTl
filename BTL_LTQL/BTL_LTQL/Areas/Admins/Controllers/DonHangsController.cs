@@ -21,11 +21,19 @@ namespace BTL_LTQL.Areas.Admins.Controllers
         }
 
         // GET: Admins/DonHangs/Details/5
-        public ActionResult Details(int? id)
+
+        public ActionResult Thongtindonhang(int? id)
         {
-          
+            var result = from m in db.Chitietdonhangs
+                         where m.DonHangID == id
+                         select m;
+            return View(result);
+        }
+
+        public ActionResult Details(int? id)
+        {          
             if (id == null)
-            {
+            {                                                                                                  
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             DonHang donHang = db.DonHangs.Find(id);
@@ -123,6 +131,15 @@ namespace BTL_LTQL.Areas.Admins.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpPost]
+        public ActionResult Set_Ngay_Giao(DonHang dh,int id)
+        {
+            dh = db.DonHangs.Find(id);
+            dh.NgayGiao = DateTime.Today;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

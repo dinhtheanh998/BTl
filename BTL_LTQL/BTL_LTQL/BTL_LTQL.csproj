@@ -192,6 +192,10 @@
     <Compile Include="Migrations\202112011305249_createDH.Designer.cs">
       <DependentUpon>202112011305249_createDH.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112040149022_NgayGiao_Set_null.cs" />
+    <Compile Include="Migrations\202112040149022_NgayGiao_Set_null.Designer.cs">
+      <DependentUpon>202112040149022_NgayGiao_Set_null.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AutogenKey.cs" />
@@ -207,6 +211,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin\StyleTable.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -242,7 +247,6 @@
     <Content Include="Areas\Admins\Views\ProductsAdmin\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Create.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Delete.cshtml" />
-    <Content Include="Areas\Admins\Views\Categories\Details.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Categories\Index.cshtml" />
     <Content Include="Areas\Admins\Views\AccountAdmin\Register.cshtml" />
@@ -255,6 +259,7 @@
     <Content Include="Areas\Admins\Views\Chitietdonhangs\Details.cshtml" />
     <Content Include="Areas\Admins\Views\Chitietdonhangs\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\Chitietdonhangs\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\DonHangs\Thongtindonhang.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -333,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112011305249_createDH.resx">
       <DependentUpon>202112011305249_createDH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112040149022_NgayGiao_Set_null.resx">
+      <DependentUpon>202112040149022_NgayGiao_Set_null.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

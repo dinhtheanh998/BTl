@@ -65,12 +65,7 @@ namespace BTL_LTQL.Areas.Admins.Controllers
         {
             if (ModelState.IsValid)
             {
-                //string fileName = Path.GetFileNameWithoutExtension(product.ProductImgFile.FileName);
-                //string extension = Path.GetExtension(product.ProductImgFile.FileName);
-                //fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                //product.ProductImageName = "/Images/" + fileName;
-                //fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
-                //product.ProductImgFile.SaveAs(fileName);
+                
 
                 string path = uploadimage(ProductImgFile);
 

@@ -27,9 +27,8 @@
                     @Html.DisplayFor(modelItem => item.CategoryName)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CategoryID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID })
+                    <a class="btn btn-primary mr-3" href="/Admins/Categories/Edit/@item.CategoryID">Sửa</a>
+                    <a class="btn btn-primary" href="/Admins/Categories/Delete/@item.CategoryID">Xóa</a>
                 </td>
             </tr>
         }

@@ -13,43 +13,67 @@
 </style>
 <div class="col-8 m-auto">
     <table class="table">
-        <tr>
+        <tr class="label-table">
             <th>
-               Mã đơn hàng
+                Mã đơn hàng
             </th>
             <th>
                 Ngày đặt
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NgayGiao)
+               Ngày giao
             </th>
             <th>
                 Tài khoản đặt
             </th>
+            <th colspan="2" class="text-center">
+                Thao tác
+            </th>
         </tr>
 
         @foreach (var item in Model)
-        {
+        {            
             <tr>
-                <td>
+                <td class="f-600" >
                     @Html.DisplayFor(modelItem => item.DonHangID)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ngaydat)
+                <td class="f-600">
+                    @item.Ngaydat.ToShortDateString()
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NgayGiao)
+                <td class="f-600">
+                    @item.NgayGiao.GetValueOrDefault().ToShortDateString()
                 </td>
-                <td>
+                <td class="f-600">
                     @Html.DisplayFor(modelItem => item.UserName)
                 </td>
-                @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.DonHangID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.DonHangID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.DonHangID })
-                </td>*@
+                <td class="handle-wrap-btn">
+                    <form action="/Admins/DonHangs/Set_Ngay_Giao/@item.DonHangID" method="post">
+                        <input type="submit" name="giaoHang" value="Giao Hàng" class="text-white btn btn-round btn-danger text-white handle-btn" />
+                    @*<a class="btn btn-primary" href="/Admins/DonHangs/Set_Ngay_Giao/@item.DonHangID" onclick="form.submit()">Giao Hàng</a>*@
+                    </form>
+                </td>
+                <td class="handle-wrap-btn">
+                    <a class="btn btn-primary" href="/Admins/DonHangs/Thongtindonhang/@item.DonHangID">Chi Tiết</a>
+                </td>
+
             </tr>
         }
 
     </table>
 </div>
+<style>
+    .handle-wrap-btn {
+        width:100px;
+    }
+    .label-table {
+        background-color: #f63440;
+        color: white;
+        font-weight: 600
+    }
+    input[type="submit"].handle-btn {
+        padding: 4px 17px;
+    }
+    .f-600 {
+        font-weight:600
+    }
+</style>

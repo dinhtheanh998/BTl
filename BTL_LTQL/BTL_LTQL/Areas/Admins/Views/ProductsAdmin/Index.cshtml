@@ -14,55 +14,14 @@
         <a href="/Admins/ProductsAdmin/Create" class="btn btn-create-primary">Thêm Sản Phẩm</a>
     </div>
 </div>
-@*<table class="table">
-        <tr>
-            <th>
-
-                @Html.DisplayNameFor(model => model.Categories.CategoryName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductDescription)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categories.CategoryName,"Loại Sản Phẩm")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductDescription)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
-            </td>
-        </tr>
-    }
-
-    </table>*@
 
 <section class="flat-row row-product-project style-1">
     <div class="container">
+        <div class="title-section margin-bottom-41">
+            <h2 class="title text-center">Sản Phẩm</h2>
+        </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="title-section margin-bottom-41">
-                    <h2 class="title">Sản Phẩm</h2>
-                </div>
                 <div class="divider h54"></div>
                 <div class="product-content product-fourcolumn clearfix">
                     <ul class="product style2 isotope-product clearfix">
