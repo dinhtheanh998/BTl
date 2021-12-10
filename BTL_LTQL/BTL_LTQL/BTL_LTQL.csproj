@@ -214,7 +214,6 @@
     <Compile Include="Models\Encrytion.cs" />
     <Compile Include="Models\LTQLDbcontext.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ReadDataFromExcelFile.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\UserRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -276,6 +275,9 @@
     <Content Include="Areas\Admins\Views\Chitietdonhangs\Index.cshtml" />
     <Content Include="Areas\Admins\Views\DonHangs\Thongtindonhang.cshtml" />
     <Content Include="Areas\Admins\Views\DonHangs\Thongtinkhachhang.cshtml" />
+    <Content Include="Areas\Admins\Views\Shared\__Login.cshtml" />
+    <Content Include="Areas\Admins\Views\AccountAdmin\ShowInfoAccAdmin.cshtml" />
+    <Content Include="Areas\Admins\Views\AccountAdmin\Change_passwordAdm.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -315,10 +317,13 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Shared\_LoginPatial.cshtml" />
+    <Content Include="Views\Accounts\Change_password.cshtml" />
+    <Content Include="Views\Accounts\ShowInfoAcc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admins\Data\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

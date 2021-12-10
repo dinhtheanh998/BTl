@@ -6,14 +6,12 @@
     <li class="my-account h-100">
         <a class="f-600 hello-acc">Xin chào @user!</a>
         <div class="acc-option-wrap">
-            <a href="/Accounts/ShowInfoAcc/@user" class="acc-op-link f-600">Thông tin tài khoản</a>
-            <a href="/Accounts/Change_password/@user" class="acc-op-link f-600">Đổi mật khẩu</a>
-            <a href="/Accounts/Logout" class="acc-op-link f-600">Đăng xuất</a>
+            <a href="/Admins/AccountAdmin/ShowInfoAccAdmin/@user" class="acc-op-link f-600">Thông tin tài khoản</a>
+            <a href="/Admins/AccountAdmin/Change_passwordAdm/@user" class="acc-op-link f-600">Đổi mật khẩu</a>
+            <a href="~/Accounts/Logout" class="acc-op-link f-600">Đăng xuất</a>
         </div>
     </li>
-    @*<li>
-            <a href="/Accounts/Logout" class="f-600">Đăng Xuất</a>
-        </li>*@
+  
 }
 else
 {
@@ -44,9 +42,9 @@ else
         right: 0;
         background-color: white;
         box-shadow: 0 1px 3px #ccc;
-        padding:8px;
-        transform-origin: 90% top;        
-        animation: grownoti linear 0.156s; 
+        padding: 8px;
+        transform-origin: 90% top;
+        animation: grownoti linear 0.156s;
     }
 
         .acc-option-wrap::after {
@@ -58,13 +56,15 @@ else
             top: -29px;
             border-color: transparent transparent white transparent;
         }
+
         .acc-option-wrap::before {
-            content:"";
-            position:absolute;
-            width:100%;
-            height:10px;
-            top:-10px;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            top: -10px;
         }
+
     .my-account:hover .acc-option-wrap {
         display: flex;
     }
@@ -75,12 +75,13 @@ else
 
     @@keyframes grownoti {
         from {
-            opacity:0;
-            transform:scale(0);
+            opacity: 0;
+            transform: scale(0);
         }
+
         to {
-            opacity:1;
-            transform:scale(1);
+            opacity: 1;
+            transform: scale(1);
         }
     }
 </style>

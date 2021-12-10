@@ -16,12 +16,47 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="~/content/stylesheets/style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+          integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
+
     <style>
+        .f-600,
         #mainnav > ul > li > a.f-600 {
             font-weight: 600;
         }
+
         .bg-custom {
-            background-color:#f6f8f9;
+            background-color: #f6f8f9;
+        }
+
+        .btn-on-top {
+            border: none;
+            background-color: transparent;
+            bottom: 20px;
+            position: fixed;
+            right: 10%;
+            z-index: 99;
+            display: none;
+            padding: 0;
+        }
+
+            .btn-on-top:hover {
+                background-color:#fff;
+            }
+            .btn-on-top:hover .btn-on-top-icon {
+                background-color: transparent;
+                cursor: pointer;
+                color: rgba(246,52,64,0.8);
+            }
+
+        .btn-on-top-icon {
+            font-size: 60px;
+            color: #f63440;
         }
     </style>
 </head>
@@ -33,23 +68,23 @@
             <!-- Header -->
             <header id="header" class="header header-container clearfix">
                 <div class="container clearfix" id="site-header-inner">
-                    <div class="nav-wrap">
-                        <nav id="mainnav" class="mainnav">
+                    <div class="nav-wrap h-100">
+                        <nav id="mainnav" class="d-flex justify-content-between align-items-center  h-100">
                             <ul class="menu">
-                                <li class="active">
+                                <li class="active h-100">
                                     <a href="/Products/Index" class="f-600">Trang Chủ</a>
                                 </li>
                             </ul>
                             <ul class="menu">
                                 @Html.Action("BagCart", "ShoppingCart")
                                 @*<li>
-                                    <a href="/Accounts/Register">Tạo Tài Khoản</a>
+                                        <a href="/Accounts/Register">Tạo Tài Khoản</a>
 
-                                </li>
-                                <li>
-                                    <a href="/Accounts/Login">Đăng Nhập</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Accounts/Login">Đăng Nhập</a>
 
-                                </li>*@
+                                    </li>*@
                                 @Html.Partial("_LoginPatial")
                             </ul>
 
@@ -60,10 +95,30 @@
         </div><!-- /#site-header-wrap -->
     </div>
     <div class="bg-custom">
-    @RenderBody()
+        @RenderBody()
+        <div class="btn-on-top" title="Trở về đầu trang">
+            <i class="fas fa-arrow-alt-circle-up btn-on-top-icon"></i>
+        </div>
     </div>
+    <script>
+        let mybtn = document.querySelector(".btn-on-top");
+
+        document.onscroll = function () {
+            scrollbtn();
+        };
+        function scrollbtn() {
+            if (document.body.scrollTop > 65 || document.documentElement.scrollTop > 65) {
+                mybtn.style.display = "block";
+            } else {
+                mybtn.style.display = "none";
+            }
+        }
+        mybtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false);
+    @RenderSection("scripts", required: false)
 </body>
 </html>

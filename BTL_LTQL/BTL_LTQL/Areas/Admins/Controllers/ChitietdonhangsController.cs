@@ -10,6 +10,7 @@ using BTL_LTQL.Models;
 
 namespace BTL_LTQL.Areas.Admins.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ChitietdonhangsController : Controller
     {
         private LTQLDbcontext db = new LTQLDbcontext();
@@ -17,8 +18,6 @@ namespace BTL_LTQL.Areas.Admins.Controllers
         // GET: Admins/Chitietdonhangs
         public ActionResult Index(int? searchString)
         {
-
-
             IQueryable<int> genreQuery = from m in db.Chitietdonhangs
                                          orderby m.DonHangID
                                          select m.DonHangID;

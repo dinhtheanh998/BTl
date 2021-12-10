@@ -11,6 +11,7 @@ using BTL_LTQL.Models;
 
 namespace BTL_LTQL.Areas.Admins.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductsAdminController : Controller
     {
         private LTQLDbcontext db = new LTQLDbcontext();

@@ -1,6 +1,7 @@
 ﻿using BTL_LTQL.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -39,7 +40,8 @@ namespace BTL_LTQL.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Login", "Accounts");
                 }
-            }catch
+            }
+            catch
             {
                 ModelState.AddModelError("", "Tài khoản đã tồn tại");
             }
@@ -47,11 +49,6 @@ namespace BTL_LTQL.Controllers
         }
 
         [AllowAnonymous]
-
-
-
-
-
         public ActionResult Login(string returnUrl)
         {
             if (CheckSession() == 1)
@@ -151,14 +148,52 @@ namespace BTL_LTQL.Controllers
                         {
                             return 1;
                         }
-                        else if(role.ToString() == "client")
+                        else if (role.ToString() == "client")
                         {
-                          return 2;
+                            return 2;
                         }
                     }
                 }
             }
             return 0;
         }
+
+        public ActionResult Change_password(string id)
+        {
+            Account acc = db.Accounts.Find(id);
+            return View(acc);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Change_password(Account acc, FormCollection form)
+        {
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    acc.Password = ecry.PassWordEncrytion(form["Password"]);
+                    acc.ConfirmPassword = ecry.PassWordEncrytion(form["ConfirmPassword"]);
+                    db.Entry(acc).State = EntityState.Modified;
+                    db.SaveChanges();
+                    Response.Write("<script>alert('Data inserted successfully')</script>");
+                    return RedirectToAction("Index", "Products");
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "Xác nhận mật khẩu không chính xác!!");
+                }
+            }
+            ModelState.AddModelError("", "Xác nhận mật khẩu không chính xác!!");
+            return View(acc);
+        }
+
+        public ActionResult ShowInfoAcc(string id)
+        {
+            Account acc = db.Accounts.Find(id);
+            return View(acc);
+        }
+
+
     }
 }

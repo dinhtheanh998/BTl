@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using BTL_LTQL.Models;
@@ -21,7 +22,7 @@ namespace BTL_LTQL.Controllers
                         select l;
             if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
             {
-                var linksearch = links.Where(s => s.ProductName.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+                var linksearch = links.Where(s => s.ProductName.ToLower().Contains(searchString.ToLower())).ToList(); //lọc theo chuỗi tìm kiếm
                 return View(linksearch);
             }
             else

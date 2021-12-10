@@ -1,0 +1,62 @@
+﻿@model BTL_LTQL.Models.Account
+
+@{
+    ViewBag.Title = "ShowInfoAcc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container ">
+    <h4 class="p-3">Thông tin tài khoản</h4>
+    <hr />
+    <div>
+        <div class="mb-3">
+            <span class="label-acc">Tên đăng nhập :</span>
+            <span class="acc-content">@Model.UserName</span>
+        </div>
+        <div class="mb-3">
+            <span class="label-acc ">Họ và tên :</span>
+            <span class="acc-content ">@Model.HoTen</span>
+        </div>
+        <div class="mb-3">
+            <span class="label-acc ">Địa chỉ :</span>
+            <span class="acc-content ">@Model.diachi</span>
+        </div>
+        <div class="mb-3">
+            <span class="label-acc ">Số điện thoại :</span>
+            <span class="acc-content ">@Model.sodienthoai</span>
+        </div>
+    </div>
+    <hr />
+    @*<table>
+        <tbody>
+            <tr>
+                <th scope="row">Tên đăng nhập </th>
+                <td>@Model.UserName</td>
+            </tr>
+            <tr>
+                <th scope="row">Họ và tên </th>
+                <td>@Model.HoTen</td>
+            </tr>
+            <tr>
+                <th scope="row">Địa chỉ </th>
+                <td class="pl-3">@Model.diachi</td>
+            </tr>
+            <tr>
+                <th scope="row">Số điện thoại </th>
+                <td>@Model.sodienthoai</td>
+            </tr>
+        </tbody>
+    </table>*@
+    <a href="~/Products/Index" class="btn btn-primary">Quay Lại</a>
+</div>
+
+<style>
+    .label-acc,
+    .acc-content {
+        font-size: 20px
+    }
+
+    .acc-content {
+        color: #f63440
+    }
+</style>
